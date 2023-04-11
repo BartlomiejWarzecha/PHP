@@ -1,0 +1,82 @@
+.navbar {
+    display: flex;
+}
+
+.navbar span {
+    margin-right: 10px;
+}
+
+.navbar span a {
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar span a:hover {
+    text-decoration: underline;
+}
+
+
+/* Resetowanie domyślnych styli dla formularza */
+form {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Stylizowanie nagłówka formularza */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.perForm{
+    border: 3px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+/* Stylizowanie elementów formularza */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 70%;
+    padding: 5px;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+}
+
+textarea.form-control {
+    height: 100px;
+}
+
+/* Stylizowanie przycisku submit */
+.btn {
+    display: inline-block;
+    padding: 16px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn .glyphicon-heart {
+    margin-right: 5px;
+}
+
+/* Stylizowanie linków w formularzu */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
