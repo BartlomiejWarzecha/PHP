@@ -1,7 +1,13 @@
 <?php
-$petsJson = file_get_contents('pets.json');
+function getPets(){
 
-$pets = json_decode($petsJson);
+    $petsJson = file_get_contents('pets.json');
+    $pets = json_decode($petsJson, true);
+
+    return $pets;
+}
+
+$pets  = getPets();
 //var_dump($pets);
 $pupCount = count($pets);
 echo $pupCount.PHP_EOL;

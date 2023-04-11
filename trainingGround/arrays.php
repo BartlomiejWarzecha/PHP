@@ -36,14 +36,11 @@ $pancake = array(
 
 $pets = array($pet1, $pet2, $pet3, $pancake);
 
-$cleverWelcomeMessage = 'All the love, none of the crap!';
-
 $pupCount = count($pets);
 $pupCountRecursive = count($pets,1);
 
 echo  " defualut pets count: $pupCount".PHP_EOL;
 echo  " recursive pets count: ${pupCountRecursive}";
-
 
 echo $pets[0]['name'];
 
@@ -73,12 +70,37 @@ $waggyPig = [
 $pets = [
     ['name' => 'Pico de Gato', 'bio' => 'Spicy kitty'],
 ];
+
 $pets[] = ['name' => 'Waggy Pig', 'bio' => 'Little white dog'];
 $pets[] = ['name' => 'Pancake', 'bio' => 'Breakfast is my favorite!'];
 
 foreach ($pets as $pet) {
-
     echo $pet['name'].PHP_EOL;
 }
 
-?>
+$contents = file_get_contents('toys.json');
+$toys = json_decode($contents, true);
+
+foreach ($toys as $toy) {
+    if('' === $toy['color'] ){
+        echo "no color"." ";
+    }elseif('multiple' === $toy['color'] ) {
+        echo "Multiple Colors"." ";;
+    }else{
+        echo $toy['color']." ";;
+    }
+    echo $toy['name'].PHP_EOL;
+ }
+
+foreach ($toys as $toy) {
+        echo $toy['name']." ";
+        if (array_key_exists('color', $toy) && 'surprise' === $toy['color'] ) {
+            echo 'Surprise Color!'.PHP_EOL;
+        } elseif (!array_key_exists('color', $toy)) {
+            echo 'no color'."\n";
+        } else {
+            echo $toy['color'].PHP_EOL;
+        }
+}
+
+
