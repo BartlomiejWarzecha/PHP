@@ -7,7 +7,7 @@ function getPets(){
     return $pets;
 }
 
-$pets  = getPets();
+$pets  = getPetsJSON();
 //var_dump($pets);
 $pupCount = count($pets);
 echo $pupCount.PHP_EOL;

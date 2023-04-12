@@ -27,7 +27,7 @@
             $bio = '';
         }
 
-        $pets = getPets();
+        $pets = getPetsJSON();
         $newPet = array(
             'name' => $name,
             'breed' => $breed,
@@ -38,9 +38,9 @@
         );
 
         $pets[] = $newPet;
-        savePets($pets);
+        savePetsJSON($pets);
 
-        $newPets = getPets();
+        $newPets = getPetsJSON();
         var_dump($newPets);
 
         header('Location: /index.php');die;

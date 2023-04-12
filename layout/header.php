@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Randomowy Nagłówek</title>
-    <link rel="stylesheet" href="/php/layout/style.css">
+    <link rel="stylesheet" href="/Form_Project/PHP/layout/style.css">
 </head>
+
 <body>
 <div class="nav navbar">
-    <span class="active"><a href="/php/index.php">Home</a></span>
-    <span><a href="/php/form/pets_new.php">Pets</a></span>
+    <span class="active"><a href="/Form_Project/PHP/index.php">Home</a></span>
+    <span><a href="/Form_Project/PHP/form/pets_new.php">Pets</a></span>
     <span><a href="#contact">Contact</a></span>
 </div>
 
