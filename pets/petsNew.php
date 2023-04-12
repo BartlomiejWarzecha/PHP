@@ -1,5 +1,5 @@
-<?php require '../layout/header.php'; ?>
-<?php require '../lib/functions.php'; ?>
+<?php require __DIR__.'/layout/header.php'; ?>
+<?php require __DIR__.'/lib/functions.php'; ?>
 
     <h1>Add your Pet</h1>
 
@@ -43,10 +43,10 @@
         $newPets = getPetsJSON();
         var_dump($newPets);
 
-        header('Location: /index.php');die;
+        // header('Location: /index.php');die;
     }
 ?>
-    <form class = "perForm" method="POST" <!-- action="/php/form/pets_new.php" -->
+    <form class = "perForm" action="<?php echo __DIR__?>/petsNew.php" method="POST"  -->
         <div class="form-group">
             <label for="pet-name" class="control-label">Pet Name</label>
             <input type="text" name="name" id="pet-name" class="form-control" />
@@ -75,5 +75,5 @@
     Ip address USER, SERVER = <?php echo $_SERVER['REMOTE_ADDR']." ".$_SERVER['SERVER_ADDR']?>
 </h3>
 
-<?php require '../layout/footer.php'; ?>
+<?php require __DIR__.'/layout/footer.php'; ?>
 
