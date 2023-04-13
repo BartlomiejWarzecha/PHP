@@ -1,9 +1,7 @@
 <?php
 
-namespace lib;
 class Ship{
     private $underRepair;
-
 
     private $name ;
 
@@ -126,7 +124,8 @@ class Ship{
     }
     public function getNameAndSpecs($useShortFormat = false)
     {
-        if ($useShortFormat) {
+        if ($useShortFormat)
+        {
             return sprintf(
                 '%s: %s/%s/%s',
                 $this->name,
@@ -134,7 +133,8 @@ class Ship{
                 $this->jediFactor,
                 $this->strength
             );
-        } else {
+        } else
+        {
             return sprintf(
                 '%s: w:%s, j:%s, s:%s',
                 $this->name,

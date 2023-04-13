@@ -1,12 +1,14 @@
 <?php
-require __DIR__.'/functions.php';
+require __DIR__.'/bootstrap.php';
 
 $shipLoader = new ShipLoader();
 $ships = $shipLoader->getShips();
 
 $errorMessage = '';
-if (isset($_GET['error'])) {
-    switch ($_GET['error']) {
+if (isset($_GET['error']))
+{
+    switch ($_GET['error'])
+    {
         case 'missing_data':
             $errorMessage = 'Don\'t forget to select some ships to battle!';
             break;

@@ -34,9 +34,11 @@ echo '<hr/>';
 echo $myNewShip->printShipSummary();
 echo '<hr/>';
 
-if ($myShip->doesGivenShipHaveMoreStrength($myNewShip)) {
+if ($myShip->doesGivenShipHaveMoreStrength($myNewShip))
+{
     echo $myNewShip->getName().' has more strength';
-} else {
+} else
+{
     echo $myShip->getName().' has more strength';
 }
 
