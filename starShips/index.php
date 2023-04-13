@@ -1,7 +1,8 @@
 <?php
 require __DIR__.'/functions.php';
 
-$ships = getShips();
+$shipLoader = new ShipLoader();
+$ships = $shipLoader->getShips();
 
 $errorMessage = '';
 if (isset($_GET['error'])) {
