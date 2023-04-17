@@ -1,0 +1,27 @@
+diff --git a/src/Controller/ResendConfirmationController.php b/src/Controller/ResendConfirmationController.php
+index b76b375..9e26301 100644
+--- a/src/Controller/ResendConfirmationController.php
++++ b/src/Controller/ResendConfirmationController.php
+@@ -2,6 +2,7 @@
+ 
+ namespace App\Controller;
+ 
++use App\Service\ConfirmationEmailSender;
+ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+ use Symfony\Component\HttpFoundation\Response;
+ use Symfony\Component\Routing\Annotation\Route;
+@@ -11,12 +12,12 @@ class ResendConfirmationController extends AbstractController
+     /**
+      * @Route("/resend-confirmation", methods={"POST"})
+      */
+-    public function resend()
++    public function resend(ConfirmationEmailSender $confirmationEmailSender)
+     {
+         $this->denyAccessUnlessGranted('ROLE_USER');
+         $user = $this->getUser();
+ 
+-        // TODO: send confirmation email
++        $confirmationEmailSender->send($user);
+ 
+         return new Response(null, 204);
+     }

@@ -1,0 +1,13 @@
+diff --git a/src/Scoring/PhotoFactor.php b/src/Scoring/PhotoFactor.php
+index a2c5e53..79cbf23 100644
+--- a/src/Scoring/PhotoFactor.php
++++ b/src/Scoring/PhotoFactor.php
+@@ -4,7 +4,7 @@ namespace App\Scoring;
+ 
+ use App\Entity\BigFootSighting;
+ 
+-class PhotoFactor implements ScoringFactorInterface
++class PhotoFactor implements ScoringFactorInterface, ScoreAdjusterInterface
+ {
+     public function score(BigFootSighting $sighting): int
+     {

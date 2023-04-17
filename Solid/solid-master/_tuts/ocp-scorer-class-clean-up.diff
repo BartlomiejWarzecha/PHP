@@ -1,0 +1,82 @@
+diff --git a/src/Service/SightingScorer.php b/src/Service/SightingScorer.php
+index 38a156f..a8c0c08 100644
+--- a/src/Service/SightingScorer.php
++++ b/src/Service/SightingScorer.php
+@@ -4,9 +4,20 @@ namespace App\Service;
+ 
+ use App\Entity\BigFootSighting;
+ use App\Model\BigFootSightingScore;
++use App\Scoring\ScoringFactorInterface;
+ 
+ class SightingScorer
+ {
++    /**
++     * @var ScoringFactorInterface[]
++     */
++    private array $scoringFactors;
++
++    public function __construct(array $scoringFactors)
++    {
++        $this->scoringFactors = $scoringFactors;
++    }
++
+     public function score(BigFootSighting $sighting): BigFootSightingScore
+     {
+         $score = 0;
+@@ -16,56 +27,4 @@ class SightingScorer
+ 
+         return new BigFootSightingScore($score);
+     }
+-
+-    private function evaluateCoordinates(BigFootSighting $sighting): int
+-    {
+-        $score = 0;
+-        $lat = (float)$sighting->getLatitude();
+-        $lng = (float)$sighting->getLongitude();
+-
+-        // California edge to edge coordinates
+-        if ($lat >= 32.5121 && $lat <= 42.0126
+-            && $lng >= -114.1315 && $lng <= -124.6509
+-        ) {
+-            $score += 30;
+-        }
+-
+-        return $score;
+-    }
+-
+-    private function evaluateTitle(BigFootSighting $sighting): int
+-    {
+-        $score = 0;
+-        $title = strtolower($sighting->getTitle());
+-
+-        if (stripos($title, 'hairy') !== false) {
+-            $score += 10;
+-        }
+-
+-        if (stripos($title, 'chased me') !== false) {
+-            $score += 20;
+-        }
+-
+-        return $score;
+-    }
+-
+-    private function evaluateDescription(BigFootSighting $sighting): int
+-    {
+-        $score = 0;
+-        $title = strtolower($sighting->getDescription());
+-
+-        if (stripos($title, 'hairy') !== false) {
+-            $score += 10;
+-        }
+-
+-        if (stripos($title, 'chased me') !== false) {
+-            $score += 20;
+-        }
+-
+-        if (stripos($title, 'using an iPhone') !== false) {
+-            $score -= 50;
+-        }
+-
+-        return $score;
+-    }
+ }

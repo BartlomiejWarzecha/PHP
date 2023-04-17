@@ -1,0 +1,29 @@
+diff --git a/src/Controller/ResendConfirmationController.php b/src/Controller/ResendConfirmationController.php
+new file mode 100644
+index 0000000..b76b375
+--- /dev/null
++++ b/src/Controller/ResendConfirmationController.php
+@@ -0,0 +1,23 @@
++<?php
++
++namespace App\Controller;
++
++use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
++use Symfony\Component\HttpFoundation\Response;
++use Symfony\Component\Routing\Annotation\Route;
++
++class ResendConfirmationController extends AbstractController
++{
++    /**
++     * @Route("/resend-confirmation", methods={"POST"})
++     */
++    public function resend()
++    {
++        $this->denyAccessUnlessGranted('ROLE_USER');
++        $user = $this->getUser();
++
++        // TODO: send confirmation email
++
++        return new Response(null, 204);
++    }
++}

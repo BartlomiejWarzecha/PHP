@@ -1,0 +1,24 @@
+diff --git a/src/Service/RegexSpamWordHelper.php b/src/Service/RegexSpamWordHelper.php
+index 38c2554..2f86499 100644
+--- a/src/Service/RegexSpamWordHelper.php
++++ b/src/Service/RegexSpamWordHelper.php
+@@ -4,5 +4,19 @@ namespace App\Service;
+ 
+ class RegexSpamWordHelper
+ {
++    public function getMatchedSpamWords(string $content): array
++    {
+ 
++    }
++
++    private function spamWords(): array
++    {
++        return [
++            'follow me',
++            'twitter',
++            'facebook',
++            'earn money',
++            'SymfonyCats',
++        ];
++    }
+ }

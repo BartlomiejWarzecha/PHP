@@ -1,0 +1,24 @@
+diff --git a/src/Service/SightingScorer.php b/src/Service/SightingScorer.php
+index 688bca8..26f993a 100644
+--- a/src/Service/SightingScorer.php
++++ b/src/Service/SightingScorer.php
+@@ -3,6 +3,7 @@
+ namespace App\Service;
+ 
+ use App\Entity\BigFootSighting;
++use App\Scoring\PhotoFactor;
+ use App\Model\BigFootSightingScore;
+ use App\Scoring\ScoringFactorInterface;
+ 
+@@ -22,6 +23,11 @@ class SightingScorer
+     {
+         $score = 0;
+         foreach ($this->scoringFactors as $scoringFactor) {
++            // LSP violation and also OCP violation
++            if ($scoringFactor instanceof PhotoFactor && count($sighting->getImages()) === 0) {
++                continue;
++            }
++
+             $score += $scoringFactor->score($sighting);
+         }
+ 

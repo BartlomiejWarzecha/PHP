@@ -1,0 +1,28 @@
+diff --git a/src/Manager/UserManager.php b/src/Manager/UserManager.php
+index a05afda..7a64e88 100644
+--- a/src/Manager/UserManager.php
++++ b/src/Manager/UserManager.php
+@@ -4,6 +4,7 @@ namespace App\Manager;
+ 
+ use App\Entity\User;
+ use Doctrine\ORM\EntityManagerInterface;
++use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+ use Symfony\Component\Mailer\MailerInterface;
+ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+ use Symfony\Component\Routing\RouterInterface;
+@@ -33,6 +34,15 @@ class UserManager
+             'token' => $user->getConfirmationToken()
+         ], UrlGeneratorInterface::ABSOLUTE_URL);
+ 
++        $confirmationEmail = (new TemplatedEmail())
++            ->from('staff@example.com')
++            ->to($user->getEmail())
++            ->subject('Confirm your account')
++            ->htmlTemplate('emails/registration_confirmation.html.twig')
++            ->context([
++                'confirmationLink' => $confirmationLink
++            ]);
++
+         $user->setPassword(
+             $this->passwordEncoder->encodePassword($user, $plainPassword)
+         );

@@ -1,0 +1,13 @@
+diff --git a/src/Manager/UserManager.php b/src/Manager/UserManager.php
+index 7a64e88..25f0c0c 100644
+--- a/src/Manager/UserManager.php
++++ b/src/Manager/UserManager.php
+@@ -49,6 +49,8 @@ class UserManager
+ 
+         $this->entityManager->persist($user);
+         $this->entityManager->flush();
++
++        $this->mailer->send($confirmationEmail);
+     }
+ 
+     private function createToken(): string

@@ -1,0 +1,26 @@
+diff --git a/src/Controller/RegistrationController.php b/src/Controller/RegistrationController.php
+index a66a9e6..f16d59a 100644
+--- a/src/Controller/RegistrationController.php
++++ b/src/Controller/RegistrationController.php
+@@ -29,7 +29,7 @@ class RegistrationController extends AbstractController
+ 
+             $plainPassword = $form->get('plainPassword')->getData();
+ 
+-            $userManager->register($user, $plainPassword);
++            $userManager->create($user, $plainPassword);
+ 
+             $this->addFlash('success', 'Fist Pump! Let\'s go find some Sasquatch!');
+ 
+diff --git a/src/Manager/UserManager.php b/src/Manager/UserManager.php
+index 25f0c0c..691255c 100644
+--- a/src/Manager/UserManager.php
++++ b/src/Manager/UserManager.php
+@@ -25,7 +25,7 @@ class UserManager
+         $this->mailer = $mailer;
+     }
+ 
+-    public function register(User $user, string $plainPassword): void
++    public function create(User $user, string $plainPassword): void
+     {
+         $token = $this->createToken();
+         $user->setConfirmationToken($token);

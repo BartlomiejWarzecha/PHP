@@ -1,0 +1,18 @@
+diff --git a/src/Service/RegexSpamWordHelper.php b/src/Service/RegexSpamWordHelper.php
+index 2f86499..9974497 100644
+--- a/src/Service/RegexSpamWordHelper.php
++++ b/src/Service/RegexSpamWordHelper.php
+@@ -6,7 +6,13 @@ class RegexSpamWordHelper
+ {
+     public function getMatchedSpamWords(string $content): array
+     {
++        $badWordsOnComment = [];
+ 
++        $regex = implode('|', $this->spamWords());
++
++        preg_match_all("/$regex/i", $content, $badWordsOnComment);
++
++        return $badWordsOnComment[0];
+     }
+ 
+     private function spamWords(): array

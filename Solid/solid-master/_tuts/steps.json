@@ -1,0 +1,335 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "srp-wrong-impl-create-token",
+            "name": "SRP Wrong Impl: create token",
+            "description": null
+        },
+        {
+            "id": "srp-wrong-impl-set-token-onuser",
+            "name": "SRP Wrong Impl: set token onUser",
+            "description": null
+        },
+        {
+            "id": "srp-wrong-impl-injectrouter",
+            "name": "SRP Wrong Impl: injectRouter",
+            "description": null
+        },
+        {
+            "id": "srp-wrong-impl-inject-mailer-service",
+            "name": "SRP Wrong Impl: inject mailer service",
+            "description": null
+        },
+        {
+            "id": "srp-wrong-impl-add-template-email",
+            "name": "SRP Wrong Impl: add template email",
+            "description": null
+        },
+        {
+            "id": "srp-wrong-impl-send-an-email",
+            "name": "SRP Wrong Impl: send an email",
+            "description": null
+        },
+        {
+            "id": "srp-right-impl-rename-register-to-create",
+            "name": "SRP Right Impl: rename register to create",
+            "description": null
+        },
+        {
+            "id": "srp-right-impl-class-confirmation-email-sender",
+            "name": "SRP Right Impl: class confirmation email sender",
+            "description": null
+        },
+        {
+            "id": "srp-right-impl-email-sender-constructor",
+            "name": "SRP Right Impl: email sender constructor",
+            "description": null
+        },
+        {
+            "id": "srp-right-impl-email-sender-implement-send",
+            "name": "SRP Right Impl: email sender implement send",
+            "description": null
+        },
+        {
+            "id": "srp-right-impl-user-manager-cleanup",
+            "name": "SRP Right Impl: user manager cleanup",
+            "description": null
+        },
+        {
+            "id": "srp-right-impl-fix-signup-feature",
+            "name": "SRP Right Impl: fix signup feature",
+            "description": null
+        },
+        {
+            "id": "srp-right-impl-copy-resend-controller",
+            "name": "SRP Right Impl: copy resend controller",
+            "description": null
+        },
+        {
+            "id": "srp-right-impl-resend-action-arguments",
+            "name": "SRP Right Impl: resend action arguments",
+            "description": null
+        },
+        {
+            "id": "ocp-creating-scoringfactorinterface",
+            "name": "OCP: creating ScoringFactorInterface",
+            "description": null
+        },
+        {
+            "id": "ocp-add-scoring-factor-interface",
+            "name": "OCP: add scoring factor interface",
+            "description": null
+        },
+        {
+            "id": "ocp-scorer-class-clean-up",
+            "name": "OCP: scorer class clean up",
+            "description": null
+        },
+        {
+            "id": "ocp-adjust-scorer-implementation",
+            "name": "OCP: adjust scorer implementation",
+            "description": null
+        },
+        {
+            "id": "ocp-scorer-service-configuration",
+            "name": "OCP: scorer service configuration",
+            "description": null
+        },
+        {
+            "id": "ocp-add-tag-service",
+            "name": "OCP: add tag service",
+            "description": null
+        },
+        {
+            "id": "lsp-add-photo-factor",
+            "name": "LSP: add photo factor",
+            "description": null
+        },
+        {
+            "id": "lsp-photo-factor-wrong-fix",
+            "name": "LSP: photo factor wrong fix",
+            "description": null
+        },
+        {
+            "id": "lsp-photo-factor-right-fix",
+            "name": "LSP: photo factor right fix",
+            "description": null
+        },
+        {
+            "id": "lsp-add-phpdoc-on-interface",
+            "name": "LSP: add phpdoc on interface",
+            "description": null
+        },
+        {
+            "id": "lsp-add-debuggablesightingscorer",
+            "name": "LSP: add DebuggableSightingScorer",
+            "description": null
+        },
+        {
+            "id": "lsp-use-debuggablesightingscorer-in-upload-action",
+            "name": "LSP: use DebuggableSightingScorer in upload action",
+            "description": null
+        },
+        {
+            "id": "delete-me-1",
+            "name": "delete me 1",
+            "description": null
+        },
+        {
+            "id": "lsp-debug-example-override-score-method",
+            "name": "LSP Debug Example: override score method",
+            "description": null
+        },
+        {
+            "id": "lsp-debug-example-change-return-type",
+            "name": "LSP Debug Example: change return type",
+            "description": null
+        },
+        {
+            "id": "lsp-debug-example-undo-change-return-type",
+            "name": "LSP Debug Example: undo change return type",
+            "description": null
+        },
+        {
+            "id": "lsp-debug-example-subclass-bigfootsightingscore",
+            "name": "LSP Debug Example: subclass BigfootSightingScore",
+            "description": null
+        },
+        {
+            "id": "lsp-debug-example-store-calculation-time",
+            "name": "LSP Debug Example: store calculation time",
+            "description": null
+        },
+        {
+            "id": "lsp-debug-example-narrow-down-return-type",
+            "name": "LSP Debug Example: narrow down return type",
+            "description": null
+        },
+        {
+            "id": "lsp-debug-example-calculate-process-time",
+            "name": "LSP Debug Example: calculate process time",
+            "description": null
+        },
+        {
+            "id": "lsp-debug-example-set-duration-onto-flash",
+            "name": "LSP Debug Example: set duration onto flash",
+            "description": null
+        },
+        {
+            "id": "lsp-debug-example-remove-instanceof",
+            "name": "LSP Debug Example: remove instanceof",
+            "description": null
+        },
+        {
+            "id": "lsp-debug-example-configure-alias-for-service",
+            "name": "LSP Debug Example: configure alias for service",
+            "description": null
+        },
+        {
+            "id": "isp-wrong-way-add-adjust-score",
+            "name": "ISP Wrong Way: add adjust score",
+            "description": null
+        },
+        {
+            "id": "isp-wrong-way-dummy-impl-photo-factor",
+            "name": "ISP Wrong Way: dummy impl photo factor",
+            "description": null
+        },
+        {
+            "id": "isp-wrong-way-real-impl-photo-factor",
+            "name": "ISP Wrong Way: real impl photo factor",
+            "description": null
+        },
+        {
+            "id": "isp-wrong-way-dummy-impl-other-derivatives",
+            "name": "ISP Wrong Way: dummy impl other derivatives",
+            "description": null
+        },
+        {
+            "id": "isp-wrong-way-update-score-method",
+            "name": "ISP Wrong Way: update score method",
+            "description": null
+        },
+        {
+            "id": "isp-wrong-way-create-max-score-adjuster",
+            "name": "ISP Wrong Way: create max score adjuster",
+            "description": null
+        },
+        {
+            "id": "isp-wrong-way-maxscore-impl-adjustscore",
+            "name": "ISP Wrong Way: MaxScore impl adjustScore",
+            "description": null
+        },
+        {
+            "id": "isp-wrong-way-maxscore-impl-score",
+            "name": "ISP Wrong Way: MaxScore impl score",
+            "description": null
+        },
+        {
+            "id": "isp-right-way-split-scoringfactorinterface",
+            "name": "ISP Right Way: split ScoringFactorInterface",
+            "description": null
+        },
+        {
+            "id": "isp-right-way-remove-score-dummy-impl",
+            "name": "ISP Right Way: remove score dummy impl",
+            "description": null
+        },
+        {
+            "id": "isp-right-way-fix-maxscoreadjuster",
+            "name": "ISP Right Way: fix MaxScoreAdjuster",
+            "description": null
+        },
+        {
+            "id": "isp-right-way-photo-factor-impl-both",
+            "name": "ISP Right Way: photo factor impl both",
+            "description": null
+        },
+        {
+            "id": "isp-right-way-tag-score-adjuster-interface",
+            "name": "ISP Right Way: tag score adjuster interface",
+            "description": null
+        },
+        {
+            "id": "isp-right-way-configure-scorer-service",
+            "name": "ISP Right Way: configure scorer service",
+            "description": null
+        },
+        {
+            "id": "isp-right-way-sightingscorer-add-second-argument",
+            "name": "ISP Right Way: SightingScorer add second argument",
+            "description": null
+        },
+        {
+            "id": "isp-right-way-sightingscorer-use-collection",
+            "name": "ISP Right Way: sightingscorer use collection",
+            "description": null
+        },
+        {
+            "id": "dip-copy-commentspammanager",
+            "name": "DIP: copy CommentSpamManager",
+            "description": null
+        },
+        {
+            "id": "dip-add-regexspamwordhelper",
+            "name": "DIP: add RegexSpamWordHelper",
+            "description": null
+        },
+        {
+            "id": "dip-regexspamwordcounter-move-array-list-and-method",
+            "name": "DIP: RegexSpamWordCounter move array list and method",
+            "description": null
+        },
+        {
+            "id": "dip-regexspamwordcounter-implement-method",
+            "name": "DIP: RegexSpamWordCounter implement method",
+            "description": null
+        },
+        {
+            "id": "dip-inject-regexspamwordcounter",
+            "name": "DIP: inject RegexSpamWordCounter",
+            "description": null
+        },
+        {
+            "id": "dip-simplify-validate-method",
+            "name": "DIP: simplify validate method",
+            "description": null
+        },
+        {
+            "id": "dip-add-spamwordcounterinterface",
+            "name": "DIP: add SpamWordCounterInterface",
+            "description": null
+        },
+        {
+            "id": "dip-implement-spamwordcounterinterface",
+            "name": "DIP: implement SpamWordCounterInterface",
+            "description": null
+        },
+        {
+            "id": "dip-implement-countspamwords",
+            "name": "DIP: implement countSpamWords()",
+            "description": null
+        },
+        {
+            "id": "dip-update-argument-type-hint",
+            "name": "DIP: update argument type-hint",
+            "description": null
+        },
+        {
+            "id": "dip-use-new-method",
+            "name": "DIP: use new method",
+            "description": null
+        },
+        {
+            "id": "dip-make-old-method-private",
+            "name": "DIP: make old method private",
+            "description": null
+        }
+    ],
+    "sha": "fa92daa1143005f439155a58e5d63b6df1cc8420"
+}

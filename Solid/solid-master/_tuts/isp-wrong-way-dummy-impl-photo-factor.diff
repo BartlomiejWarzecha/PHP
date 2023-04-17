@@ -1,0 +1,14 @@
+diff --git a/src/Scoring/PhotoFactor.php b/src/Scoring/PhotoFactor.php
+index 0715986..ae71a77 100644
+--- a/src/Scoring/PhotoFactor.php
++++ b/src/Scoring/PhotoFactor.php
+@@ -19,4 +19,9 @@ class PhotoFactor implements ScoringFactorInterface
+ 
+         return $score;
+     }
++
++    public function adjustScore(int $finalScore, BigFootSighting $sighting): int
++    {
++        return $finalScore;
++    }
+ }
