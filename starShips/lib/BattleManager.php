@@ -23,6 +23,9 @@ class BattleManager
 
                 break;
             }
+
+
+
             if ($this->didJediDestroyShipUsingTheForce($ship2))
             {
                 $ship1Health = 0;
@@ -35,6 +38,10 @@ class BattleManager
             $ship1Health = $ship1Health - ($ship2->getWeaponPower()* $ship2Quantity);
             $ship2Health = $ship2Health - ($ship1->getWeaponPower() * $ship1Quantity);
         }
+
+        $ship1->setStrength($ship1Health);
+        $ship2->setStrength($ship2Health);
+
 
         if ($ship1Health <= 0 && $ship2Health <= 0) {
             // they destroyed each other

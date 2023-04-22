@@ -1,10 +1,11 @@
 <?php
 
 class Ship{
+
+    private $id;
+
     private $underRepair;
-
     private $name ;
-
     private $weaponPower = 0;
     private $jediFactor = 0;
     private $strength = 0;
@@ -16,6 +17,23 @@ class Ship{
         $this->name = $name;
         $this->underRepair = mt_rand(1,300) < 30;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
     /**
      * @return mixed|string
      */

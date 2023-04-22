@@ -3,39 +3,56 @@
 
 class ShipLoader
 {
-    public function getShips() : array
+    /**
+     * @return Ship[]
+     */
+    public function getShips(): array
     {
-        $ships = [];
+        $ships = array();
+        $shipsData = $this->queryForShips();
 
-        $ship1 = new Ship('Jedi Starfighter');
-        // $ship1->setName('Jedi Starfighter');
-        $ship1->setWeaponPower(5);
-        $ship1->setJediFactor(15);
-        $ship1->setStrength(30);
-        $ships['starfighter'] = $ship1;
-
-        $ship2 = new Ship('Millennium Falcon');
-        // $ship2->setName('Millennium Falcon');
-        $ship2->setWeaponPower(10);
-        $ship2->setJediFactor(5);
-        $ship2->setStrength(50);
-        $ships['falcon'] = $ship2;
-
-        $ship3 = new Ship('Imperial Star Destroyer');
-        //$ship3->setName('Imperial Star Destroyer');
-        $ship3->setWeaponPower(20);
-        $ship3->setJediFactor(2);
-        $ship3->setStrength(100);
-        $ships['destroyer'] = $ship3;
-
-        $ship4 = new Ship('X-wing Starfighter');
-        //$ship4->setName('X-wing Starfighter');
-        $ship4->setWeaponPower(8);
-        $ship4->setJediFactor(10);
-        $ship4->setStrength(40);
-        $ships['xwing'] = $ship4;
-
+        foreach ($shipsData as $shipData) {
+            $ships[] = $this->createShipFromData($shipData);
+        }
         return $ships;
     }
 
+    private function queryForShips()
+    {
+        $pdo = new PDO('mysql:host=localhost;dbname=oo_battle', 'root');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $statement = $pdo->prepare('SELECT * FROM ship');
+        $statement->execute();
+        $shipsArray = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $shipsArray;
+    }
+
+    /**
+     * @param $id
+     * @return Ship
+     */
+    public function findOneById($id)
+    {
+        $pdo = new PDO('mysql:host=localhost;dbname=oo_battle', 'root');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $statement = $pdo->prepare('SELECT * FROM ship WHERE id = :id');
+        $statement->execute(array('id' => $id));
+        $shipArray = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (!$shipArray) {
+            return null;
+        }
+
+        return $this->createShipFromData($shipArray);
+
+    }
+    private function createShipFromData(array $shipData)
+    {
+        $ship = new Ship($shipData['name']);
+        $ship->setId($shipData['id']);
+        $ship->setWeaponPower($shipData['weapon_power']);
+        $ship->setJediFactor($shipData['jedi_factor']);
+        $ship->setStrength($shipData['strength']);
+        return $ship;
+    }
 }
