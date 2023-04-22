@@ -1,8 +1,13 @@
 <?php
+
+use lib\service\Container;
+
 require __DIR__.'/bootstrap.php';
 
+$container = new Container($configuration);
+$pdo = $container->getPDO();
 
-$shipLoader = new ShipLoader();
+$shipLoader = $container->getShipLoader();
 $ships = $shipLoader->getShips();
 
 $ship1Id = isset($_POST['ship1_id']) ? $_POST['ship1_id'] : null;
@@ -36,7 +41,7 @@ if (!$ship1 || !$ship2) {
     die;
 }
 
-$battleManager = new BattleManager();
+$battleManager = $container->getBattleManager();
 
 $battleResult = $battleManager->battle($ship1, $ship1Quantity, $ship2, $ship2Quantity);
 ?>

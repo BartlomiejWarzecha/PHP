@@ -1,19 +1,18 @@
 <?php
 
 
+namespace lib\service;
+use lib\model\Ship;
+
 class ShipLoader
 {
-    private $dbDsn;
-    private $dbUser;
-    private $dbPass;
-    public function __construct($dbDsn, $dbUser, $dbPass ){
-
-        $this->dbDsn = $dbDsn;
-        $this->dbUser = $dbUser;
-        $this->dbPass = $dbPass;
-
-    }
     private $pdo;
+
+    public function __construct($pdo)
+    {
+        $this->pdo = $pdo;
+    }
+
     /**
      * @return Ship[]
      */
@@ -27,17 +26,15 @@ class ShipLoader
         }
         return $ships;
     }
+
     /**
      * @return PDO
      */
     private function getPDO()
     {
-        if ($this->pdo === null) {
-            $this->pdo = new PDO(this->$dbDsn, this->$dbUser,this->$dbPass);
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
         return $this->pdo;
     }
+
     private function queryForShips()
     {
         $statement = $this->getPDO()->prepare('SELECT * FROM ship');
@@ -45,6 +42,7 @@ class ShipLoader
         $shipsArray = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $shipsArray;
     }
+
     /**
      * @param $id
      * @return Ship
@@ -61,6 +59,7 @@ class ShipLoader
 
         return $this->createShipFromData($shipArray);
     }
+
     private function createShipFromData(array $shipData)
     {
         $ship = new Ship($shipData['name']);

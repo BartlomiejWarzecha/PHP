@@ -2,6 +2,7 @@
 require __DIR__.'/lib/Ship.php';
 
 use lib as starWars;
+use lib\model\Ship;
 
 /**
  * @param Ship $someShip

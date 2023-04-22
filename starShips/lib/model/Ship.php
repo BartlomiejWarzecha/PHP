@@ -1,11 +1,13 @@
 <?php
 
-class Ship{
+namespace lib\model;
+class Ship
+{
 
     private $id;
 
     private $underRepair;
-    private $name ;
+    private $name;
     private $weaponPower = 0;
     private $jediFactor = 0;
     private $strength = 0;
@@ -15,7 +17,7 @@ class Ship{
     public function __construct($name = "")
     {
         $this->name = $name;
-        $this->underRepair = mt_rand(1,300) < 30;
+        $this->underRepair = mt_rand(1, 300) < 30;
     }
 
     /**
@@ -131,19 +133,22 @@ class Ship{
     {
         $this->underRepair = $underRepair;
     }
-    public function giveSound(){
+
+    public function giveSound()
+    {
 
         return "Wuuu!";
 
     }
+
     public function isFunctional()
     {
         return !$this->underRepair;
     }
+
     public function getNameAndSpecs($useShortFormat = false)
     {
-        if ($useShortFormat)
-        {
+        if ($useShortFormat) {
             return sprintf(
                 '%s: %s/%s/%s',
                 $this->name,
@@ -151,8 +156,7 @@ class Ship{
                 $this->jediFactor,
                 $this->strength
             );
-        } else
-        {
+        } else {
             return sprintf(
                 '%s: w:%s, j:%s, s:%s',
                 $this->name,
@@ -162,13 +166,15 @@ class Ship{
             );
         }
     }
+
     public function doesGivenShipHaveMoreStrength($givenShip)
     {
         return $givenShip->strength > $this->strength;
     }
+
     function printShipSummary()
     {
-        echo 'Ship.php Name: '.$this->getName();
+        echo 'Ship.php Name: ' . $this->getName();
         echo '<hr/>';
         echo $this->giveSound();
         echo '<hr/>';

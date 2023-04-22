@@ -1,4 +1,8 @@
 <?php
+
+namespace lib\service;
+use lib\model\Ship;
+
 class BattleManager
 {
     /**
@@ -13,11 +17,9 @@ class BattleManager
 
         $ship1UsedJediPowers = false;
         $ship2UsedJediPowers = false;
-        while ($ship1Health > 0 && $ship2Health > 0)
-        {
+        while ($ship1Health > 0 && $ship2Health > 0) {
             // first, see if we have a rare Jedi hero event!
-            if ($this->didJediDestroyShipUsingTheForce($ship1))
-            {
+            if ($this->didJediDestroyShipUsingTheForce($ship1)) {
                 $ship2Health = 0;
                 $ship1UsedJediPowers = true;
 
@@ -25,9 +27,7 @@ class BattleManager
             }
 
 
-
-            if ($this->didJediDestroyShipUsingTheForce($ship2))
-            {
+            if ($this->didJediDestroyShipUsingTheForce($ship2)) {
                 $ship1Health = 0;
                 $ship2UsedJediPowers = true;
 
@@ -35,7 +35,7 @@ class BattleManager
             }
 
             // now battle them normally
-            $ship1Health = $ship1Health - ($ship2->getWeaponPower()* $ship2Quantity);
+            $ship1Health = $ship1Health - ($ship2->getWeaponPower() * $ship2Quantity);
             $ship2Health = $ship2Health - ($ship1->getWeaponPower() * $ship1Quantity);
         }
 
@@ -58,12 +58,13 @@ class BattleManager
             $usedJediPowers = $ship1UsedJediPowers;
         }
 
-        return new \lib\BattleResult($usedJediPowers, $winningShip, $losingShip);
+        return new \lib\model\BattleResult($usedJediPowers, $winningShip, $losingShip);
     }
+
     private function didJediDestroyShipUsingTheForce(Ship $ship)
     {
         $jediHeroProbability = $ship->getJediFactor() / 100;
 
-        return mt_rand(1, 100) <= ($jediHeroProbability*105);
+        return mt_rand(1, 100) <= ($jediHeroProbability * 105);
     }
 }
