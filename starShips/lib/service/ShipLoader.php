@@ -9,7 +9,7 @@ class ShipLoader
     }
 
     /**
-     * @return Ship[]
+     * @return AbstractShip[]
      */
     public function getShips(): array
     {
@@ -40,7 +40,7 @@ class ShipLoader
 
     /**
      * @param $id
-     * @return Ship
+     * @return AbstractShipca
      */
     public function findOneById($id)
     {
@@ -61,10 +61,10 @@ class ShipLoader
             $ship = new RebelShip($shipData['name']);
         }else{
             $ship = new Ship($shipData['name']);
+            $ship->setJediFactor($shipData['jedi_factor']);
         }
         $ship->setId($shipData['id']);
         $ship->setWeaponPower($shipData['weapon_power']);
-        $ship->setJediFactor($shipData['jedi_factor']);
         $ship->setStrength($shipData['strength']);
         return $ship;
     }

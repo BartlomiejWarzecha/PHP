@@ -6,8 +6,8 @@ $configuration = array(
     'db_user' => 'root',
     'db_pass' => null,
 );
-
 require_once __DIR__.'/lib/service/Container.php';
+require_once __DIR__.'/lib/Model/AbstractShip.php';
 require_once __DIR__.'/lib/model/Ship.php';
 require_once __DIR__.'/lib/model/RebelShip.php';
 require_once __DIR__.'/lib/model/BattleResult.php';

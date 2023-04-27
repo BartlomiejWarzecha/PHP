@@ -11,7 +11,7 @@ class BattleResult
     }
 
     /**
-     * @return Ship|null
+     * @return AbstractShip|null
      */
     public function getWinningShip()
     {
@@ -19,7 +19,7 @@ class BattleResult
     }
 
     /**
-     * @return Ship|null
+     * @return AbstractShipShip|null
      */
     public function getLosingShip()
     {
