@@ -7,8 +7,10 @@ class Container
     private $pdo;
 
     private $shipLoader;
+    private $pdoShipStorage;
 
     private $battleManager;
+
 
     public function __construct(array $configuration)
     {
@@ -20,7 +22,8 @@ class Container
      */
     public function getPDO()
     {
-        if ($this->pdo === null) {
+        if ($this->pdo === null)
+        {
             $this->pdo = new PDO(
                 $this->configuration['db_dsn'],
                 $this->configuration['db_user'],
@@ -33,13 +36,24 @@ class Container
         return $this->pdo;
     }
 
+    public function getPDOShipStorage()
+    {
+        if ($this->pdoShipStorage === null)
+        {
+            $this->pdoShipStorage = new PdoShipStorage($this->getPDO());
+        }
+
+        return $this->pdoShipStorage;
+    }
+
     /**
      * @return ShipLoader
      */
     public function getShipLoader()
     {
-        if ($this->shipLoader === null) {
-            $this->shipLoader = new ShipLoader($this->getPDO());
+        if ($this->shipLoader === null)
+        {
+            $this->shipLoader = new ShipLoader($this->getPDOShipStorage());
         }
 
         return $this->shipLoader;
@@ -49,7 +63,8 @@ class Container
      */
     public function getBattleManager()
     {
-        if ($this->battleManager=== null) {
+        if ($this->battleManager=== null)
+        {
             $this->battleManager = new BattleManager();
         }
 

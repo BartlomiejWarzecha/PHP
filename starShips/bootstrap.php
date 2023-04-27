@@ -8,8 +8,12 @@ $configuration = array(
 );
 require_once __DIR__.'/lib/service/Container.php';
 require_once __DIR__.'/lib/Model/AbstractShip.php';
+require_once __DIR__.'/lib/Service/ShipStorageInterface.php';
 require_once __DIR__.'/lib/model/Ship.php';
 require_once __DIR__.'/lib/model/RebelShip.php';
+require_once __DIR__.'/lib/Model/BrokenShip.php';
+require_once __DIR__.'/lib/Service/PdoShipStorage.php';
+require_once __DIR__.'/lib/Service/JsonFileShipStorage.php';
 require_once __DIR__.'/lib/model/BattleResult.php';
 require_once __DIR__.'/lib/service/BattleManager.php';
 require_once __DIR__.'/lib/service/ShipLoader.php';

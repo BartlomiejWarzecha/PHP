@@ -14,6 +14,9 @@ $pdo = $container->getPDO();
 $shipLoader = $container->getShipLoader();
 $ships = $shipLoader->getShips();
 
+$brokenShip = new BrokenShip('Just a hunk of metal');
+$ships[] = $brokenShip;
+
 $ship1Id = isset($_POST['ship1_id']) ? $_POST['ship1_id'] : null;
 $ship1Quantity = isset($_POST['ship1_quantity']) ? $_POST['ship1_quantity'] : 1;
 $ship2Id = isset($_POST['ship2_id']) ? $_POST['ship2_id'] : null;
