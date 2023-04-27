@@ -1,8 +1,12 @@
 <?php
 
-use lib\service\Container;
-
 require __DIR__.'/bootstrap.php';
+
+$configuration = array(
+    'db_dsn'  => 'mysql:host=localhost;dbname=oo_battle',
+    'db_user' => 'root',
+    'db_pass' => null,
+);
 
 $container = new Container($configuration);
 $pdo = $container->getPDO();

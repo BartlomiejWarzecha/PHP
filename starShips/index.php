@@ -1,21 +1,14 @@
 <?php
-
-use lib\service\Container;
-
 require __DIR__.'/bootstrap.php';
 
 $container = new Container($configuration);
 
-$pdo = $container->getPDO();
 $shipLoader = $container->getShipLoader();
-
 $ships = $shipLoader->getShips();
 
 $errorMessage = '';
-if (isset($_GET['error']))
-{
-    switch ($_GET['error'])
-    {
+if (isset($_GET['error'])) {
+    switch ($_GET['error']) {
         case 'missing_data':
             $errorMessage = 'Don\'t forget to select some ships to battle!';
             break;
@@ -70,6 +63,8 @@ if (isset($_GET['error']))
             <th>Weapon Power</th>
             <th>Jedi Factor</th>
             <th>Strength</th>
+            <th>Type</th>
+            <th>Status</th>
         </tr>
         </thead>
         <tbody>
@@ -79,6 +74,7 @@ if (isset($_GET['error']))
                 <td><?php echo $ship->getWeaponPower(); ?></td>
                 <td><?php echo $ship->getJediFactor(); ?></td>
                 <td><?php echo $ship->getStrength(); ?></td>
+                <td><?php echo $ship->getType(); ?></td>
                 <td>
                     <?php if ($ship->isFunctional()): ?>
                         <i class="fa fa-sun-o"></i>
@@ -96,7 +92,7 @@ if (isset($_GET['error']))
             <form method="POST" action="/PHP/projects/starShips/battle.php">
                 <h2 class="text-center">The Mission</h2>
                 <input class="center-block form-control text-field" type="text" name="ship1_quantity" placeholder="Enter Number of Ships" />
-                <select class="center-block form-control btn drp-dwn-width btn-default btn-lg dropdown-toggle" name="ship1_id">
+                <select class="center-block form-control btn drp-dwn-width btn-default btn-blg dropdown-toggle" name="ship1_id">
                     <option value="">Choose a Ship</option>
                     <?php foreach ($ships as $ship): ?>
                         <?php if ($ship->isFunctional()): ?>

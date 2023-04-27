@@ -1,10 +1,5 @@
 <?php
 
-namespace lib\model;
-
-
-use lib\Ship;
-
 class BattleResult
 {
     /**

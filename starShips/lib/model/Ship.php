@@ -1,6 +1,5 @@
 <?php
 
-namespace lib\model;
 class Ship
 {
 
@@ -8,16 +7,17 @@ class Ship
 
     private $underRepair;
     private $name;
+    private $type;
     private $weaponPower = 0;
     private $jediFactor = 0;
     private $strength = 0;
     private $age = 0;
 
-
-    public function __construct($name = "")
+    public function __construct($name = "", $type = "empire")
     {
         $this->name = $name;
         $this->underRepair = mt_rand(1, 300) < 30;
+        $this->type = $type;
     }
 
     /**
@@ -36,6 +36,21 @@ class Ship
         $this->id = $id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type): void
+    {
+        $this->type = $type;
+    }
     /**
      * @return mixed|string
      */
@@ -181,5 +196,9 @@ class Ship
         echo $this->getNameAndSpecs(false);
         echo '<hr/>';
         echo $this->getNameAndSpecs(true);
+    }
+    protected function getSecretDoorCodeToTheDeathstar()
+    {
+        return 'Ra1nb0ws';
     }
 }

@@ -1,10 +1,5 @@
 <?php
 
-require_once __DIR__.'/lib/service/Container.php';
-require_once __DIR__.'/lib/Model/Ship.php';
-require_once __DIR__.'/lib/Service/BattleManager.php';
-require_once __DIR__.'/lib/Service/ShipLoader.php';
-require_once __DIR__.'/lib/Model/BattleResult.php';
 
 $configuration = array(
     'db_dsn'  => 'mysql:host=localhost;dbname=oo_battle',
@@ -12,4 +7,12 @@ $configuration = array(
     'db_pass' => null,
 );
 
+require_once __DIR__.'/lib/service/Container.php';
+require_once __DIR__.'/lib/model/Ship.php';
+require_once __DIR__.'/lib/model/RebelShip.php';
+require_once __DIR__.'/lib/model/BattleResult.php';
+require_once __DIR__.'/lib/service/BattleManager.php';
+require_once __DIR__.'/lib/service/ShipLoader.php';
+
+?>
 

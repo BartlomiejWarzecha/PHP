@@ -1,13 +1,8 @@
 <?php
 
-
-namespace lib\service;
-use lib\model\Ship;
-
 class ShipLoader
 {
     private $pdo;
-
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
@@ -49,7 +44,7 @@ class ShipLoader
      */
     public function findOneById($id)
     {
-        $statement = this->getPD()->prepare('SELECT * FROM ship WHERE id = :id');
+        $statement = $this->getPDO()->prepare('SELECT * FROM ship WHERE id = :id');
         $statement->execute(array('id' => $id));
         $shipArray = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -62,7 +57,11 @@ class ShipLoader
 
     private function createShipFromData(array $shipData)
     {
-        $ship = new Ship($shipData['name']);
+        if($shipData['team'] == 'rebel'){
+            $ship = new RebelShip($shipData['name']);
+        }else{
+            $ship = new Ship($shipData['name']);
+        }
         $ship->setId($shipData['id']);
         $ship->setWeaponPower($shipData['weapon_power']);
         $ship->setJediFactor($shipData['jedi_factor']);

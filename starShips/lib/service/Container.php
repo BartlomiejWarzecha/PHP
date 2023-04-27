@@ -1,7 +1,5 @@
 <?php
 
-use lib\service\BattleManager;
-use lib\service\ShipLoader;
 class Container
 {
     private $configuration;

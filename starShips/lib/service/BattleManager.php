@@ -1,7 +1,5 @@
 <?php
 
-namespace lib\service;
-use lib\model\Ship;
 
 class BattleManager
 {
@@ -58,7 +56,7 @@ class BattleManager
             $usedJediPowers = $ship1UsedJediPowers;
         }
 
-        return new \lib\model\BattleResult($usedJediPowers, $winningShip, $losingShip);
+        return new BattleResult($usedJediPowers, $winningShip, $losingShip);
     }
 
     private function didJediDestroyShipUsingTheForce(Ship $ship)
