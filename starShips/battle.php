@@ -49,8 +49,8 @@ if (!$ship1 || !$ship2) {
 }
 
 $battleManager = $container->getBattleManager();
-
-$battleResult = $battleManager->battle($ship1, $ship1Quantity, $ship2, $ship2Quantity);
+$battleType = $_POST['battle_type'];
+$battleResult = $battleManager->battle($ship1, $ship1Quantity, $ship2, $ship2Quantity, $battleType);
 ?>
 
 <html>
