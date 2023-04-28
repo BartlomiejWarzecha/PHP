@@ -81,4 +81,12 @@ class BattleManager
 
         return mt_rand(1, 100) <= ($jediHeroProbability * 105);
     }
+    public static function getAllBattleTypesWithDescriptions()
+    {
+        return array(
+            self::TYPE_NORMAL => 'Normal',
+            self::TYPE_NO_JEDI => 'No Jedi Powers',
+            self::TYPE_ONLY_JEDI => 'Only Jedi Powers'
+        );
+    }
 }
