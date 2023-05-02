@@ -39,7 +39,14 @@ class ShipLoader
 
     private function queryForShips()
     {
-        return $this->shipStorage->fetchAllShipsData();
+        try
+        {
+            return $this->shipStorage->fetchAllShipsData();
+        }catch(\Exception $e)
+        {
+           trigger_error( "Error ".$e->getMessage()."occured");
+           return[];
+        }
     }
 
     /**
