@@ -1,10 +1,13 @@
 <?php
 
+namespace Service;
 
+use Model\BattleResult;
+use Model\AbstractShip;
 class BattleManager
 {
     // normal battle mode
-    const TYPE_NORMAL = 'normal';
+    const   TYPE_NORMAL = 'normal';
     // don't allow jedi powers
     const TYPE_NO_JEDI = 'no_jedi';
     // you can *only* win with jedi powers
@@ -13,9 +16,9 @@ class BattleManager
     /**
      * Our complex fighting algorithm!
      *
-     * @return array With keys winning_ship, losing_ship & used_jedi_powers
+     * @return BattleResult With keys winning_ship, losing_ship & used_jedi_powers
      */
-    public function battle(AbstractShip $ship1, $ship1Quantity, AbstractShip $ship2, $ship2Quantity, $battleType)
+    public function battle(AbstractShip $ship1, $ship1Quantity, AbstractShip $ship2, $ship2Quantity, $battleType): BattleResult
     {
         $ship1Health = $ship1->getStrength() * $ship1Quantity;
         $ship2Health = $ship2->getStrength() * $ship2Quantity;
@@ -75,13 +78,13 @@ class BattleManager
         return new BattleResult($usedJediPowers, $winningShip, $losingShip);
     }
 
-    private function didJediDestroyShipUsingTheForce(AbstractShip $ship)
+    private function didJediDestroyShipUsingTheForce(AbstractShip $ship) : int
     {
         $jediHeroProbability = $ship->getJediFactor() / 100;
 
         return mt_rand(1, 100) <= ($jediHeroProbability * 105);
     }
-    public static function getAllBattleTypesWithDescriptions()
+    public static function getAllBattleTypesWithDescriptions() : array
     {
         return array(
             self::TYPE_NORMAL => 'Normal',

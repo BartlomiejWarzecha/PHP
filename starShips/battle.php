@@ -2,6 +2,9 @@
 
 require __DIR__.'/bootstrap.php';
 
+use Service\Container;
+use Model\BrokenShip;
+
 $configuration = array(
     'db_dsn'  => 'mysql:host=localhost;dbname=oo_battle',
     'db_user' => 'root',

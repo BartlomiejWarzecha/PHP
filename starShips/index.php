@@ -1,6 +1,16 @@
 <?php
 require __DIR__.'/bootstrap.php';
 
+use Model\BrokenShip;
+use Service\BattleManager;
+use Service\Container;
+
+$configuration = array(
+    'db_dsn'  => 'mysql:host=localhost;dbname=oo_battle',
+    'db_user' => 'root',
+    'db_pass' => null,
+);
+
 $container = new Container($configuration);
 
 $shipLoader = $container->getShipLoader();

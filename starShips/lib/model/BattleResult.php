@@ -1,4 +1,6 @@
 <?php
+namespace Model;
+
 
 class BattleResult
 {
@@ -19,7 +21,7 @@ class BattleResult
     }
 
     /**
-     * @return AbstractShipShip|null
+     * @return AbstractShip|null
      */
     public function getLosingShip()
     {

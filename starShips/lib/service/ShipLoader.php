@@ -1,8 +1,15 @@
 <?php
 
+namespace Service;
+
+use Model\AbstractShip;
+use Model\RebelShip;
+use Model\Ship;
+
 class ShipLoader
 {
     private $shipStorage;
+    private $pdo;
     public function __construct(ShipStorageInterface $shipStorage)
     {
         $this->shipStorage = $shipStorage;
@@ -23,7 +30,7 @@ class ShipLoader
     }
 
     /**
-     * @return PDO
+     * @return \PDO
      */
     private function getPDO()
     {
@@ -37,7 +44,7 @@ class ShipLoader
 
     /**
      * @param $id
-     * @return AbstractShipca
+     * @return AbstractShip
      */
     public function findOneById($id)
     {
